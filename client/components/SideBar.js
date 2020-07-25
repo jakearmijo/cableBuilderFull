@@ -8,7 +8,7 @@ export default function SideBar() {
           <a href="#home">HOME</a>
         </div>
         <div>
-          <a className="sideElm" href="#length">
+          <a className="sideElm" href="length">
             LENGTH
           </a>
         </div>
