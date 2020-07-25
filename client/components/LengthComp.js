@@ -87,6 +87,18 @@ export const LengthComp = ({addLength}) => {
           </div>
         </div>
         <div className="lengthForm">
+          <div className="lengthruler">
+            <div className="slidecontainer">
+              <input
+                type="range"
+                min="3"
+                max="300"
+                value="10"
+                className="slider"
+                id="myRange"
+              />
+            </div>
+          </div>
           <form className="lengthForm" onSubmit={handleSubmit}>
             <label>
               Cable Length:
