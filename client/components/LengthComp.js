@@ -1,0 +1,103 @@
+import React, {useState} from 'react'
+import {connect} from 'react-redux'
+
+export const LengthComp = ({addLength}) => {
+  const [length, setLength] = useState('')
+
+  const handleSubmit = evt => {
+    evt.preventDefault()
+    alert(`Submitting Length ${length}`)
+    console.log('Cable Length:', length)
+    addLength(length)
+  }
+  return (
+    <div className="lengthComp">
+      <article className="lengthComp">
+        <div className="articleheader">
+          <span>
+            1. SELECT <strong>LENGTH</strong>
+          </span>
+        </div>
+
+        <div className="notice">
+          <img
+            src="https://www.sinasoid.com/v/builder/images/length/measurement.png"
+            alt="We measure cable length from where the plugs meet the cable."
+          />
+        </div>
+
+        <div className="lengthChoices">
+          <div className="patch-cable">
+            <img
+              className="inactive"
+              src="https://www.sinasoid.com/v/builder/images/length/silhouette/patch-gray.png"
+              alt="Patch Cable"
+            />
+            <div className="name">
+              <span>Patch</span>
+              <div className="desc">
+                <span>3-35 in</span>
+              </div>
+            </div>
+          </div>
+          <div className="instrument-cable">
+            <img
+              className="inactive"
+              src="https://www.sinasoid.com/v/builder/images/length/silhouette/instrument-gray.png"
+            />
+            <div className="name">
+              <span>INSTRUMENT</span>
+              <div className="desc">
+                <span>3-35 ft</span>
+              </div>
+            </div>
+          </div>
+          <div className="speaker-cable">
+            <img
+              className="inactive"
+              src="https://www.sinasoid.com/v/builder/images/length/silhouette/xlr-gray.png"
+            />
+            <div className="name">
+              <span>XLR/TRS</span>
+              <div className="desc">
+                <span>1-100 ft</span>
+              </div>
+            </div>
+          </div>
+          <div className="speaker-cable">
+            <img
+              className="inactive"
+              src="https://www.sinasoid.com/v/builder/images/length/silhouette/speaker-gray.png"
+            />
+            <div className="name">
+              <span>SPEAKER</span>
+              <div className="desc">
+                <span>1-20 ft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <form className="lengthForm" onSubmit={handleSubmit}>
+        <label>
+          Cable Length:
+          <input
+            type="number"
+            value={length}
+            onChange={e => setLength(e.target.value)}
+          />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+      <footer className="footer">
+        <button className="builder-next">Next</button>
+      </footer>
+    </div>
+  )
+}
+
+const mapStateToProps = state => ({})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LengthComp)

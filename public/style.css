@@ -19,3 +19,109 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.App {
+  display: flex;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  border-color: coral;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  /* overflow-x: hidden; */
+  padding-top: 100px;
+}
+
+.sidenav a {
+  padding: 40px 8px 6px 16px;
+  text-decoration: none;
+  border-top-color: #ff4d7d;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+#sideElm {
+  border-color: coral;
+}
+
+.lengthComp {
+  flex-direction: row;
+  padding-left: 10%;
+}
+
+.lengthChoices {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.articleheader {
+  background-color: orange;
+  color: #fff;
+  padding: 30.5px;
+  position: relative;
+  flex-shrink: 0;
+}
+.footer {
+  background-color: black;
+  position: absolute;
+  float: right;
+  bottom: 0;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.patch-cable {
+  flex-direction: row;
+}
+
+.inactive {
+  width: 200px;
+  height: 200px;
+}
+
+.lengthForm {
+  padding: 15%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 2;
+  margin: 1em;
+}
+
+form input {
+  padding: 0.3em;
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+
+form button {
+  color: white;
+  background-color: #59a9e9;
+}
+
+form button:hover {
+  background-color: #59a9c2;
+}
+
+form button:disabled {
+  background-color: red;
+}
