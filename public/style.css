@@ -23,11 +23,13 @@ form div {
 .App {
   display: flex;
 }
+.sidebar {
+  width: 160px;
+}
 
 .sidenav {
   height: 100%;
   width: 160px;
-  position: fixed;
   border-color: coral;
   z-index: 1;
   top: 0;
@@ -55,8 +57,17 @@ form div {
 }
 
 .lengthComp {
-  flex-direction: row;
+  display: flex;
   padding-left: 10%;
+}
+.lengthArticle {
+  flex-direction: row;
+}
+
+.articleheader {
+  align-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .lengthChoices {
@@ -69,7 +80,9 @@ form div {
   text-transform: uppercase;
   width: 100%;
 }
-
+.lengthForm {
+  flex-wrap: wrap;
+}
 .articleheader {
   background-color: orange;
   color: #fff;
@@ -77,9 +90,9 @@ form div {
   position: relative;
   flex-shrink: 0;
 }
-.footer {
-  background-color: black;
-  position: absolute;
+.builder-next {
+  background-color: grey;
+  position: relative;
   float: right;
   bottom: 0;
   flex-shrink: 0;
@@ -97,6 +110,10 @@ form div {
 
 .lengthForm {
   padding: 15%;
+}
+
+.footer {
+  float: right;
 }
 
 form {

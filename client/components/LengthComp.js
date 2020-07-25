@@ -1,8 +1,16 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
+import {Navbar} from './navbar'
+import SideBar from './SideBar'
+import Button from 'react-bootstrap/Button'
 
 export const LengthComp = ({addLength}) => {
   const [length, setLength] = useState('')
+  // const [cable, getCableLength] = useState('')
+
+  // const addLength = (length) => {
+  //   getCableLength(...cable, {length: length})
+  // }
 
   const handleSubmit = evt => {
     evt.preventDefault()
@@ -12,9 +20,10 @@ export const LengthComp = ({addLength}) => {
   }
   return (
     <div className="lengthComp">
-      <article className="lengthComp">
+      <SideBar />
+      <article className="lengthArticle">
         <div className="articleheader">
-          <span>
+          <span className="selectlengthhead">
             1. SELECT <strong>LENGTH</strong>
           </span>
         </div>
@@ -77,21 +86,23 @@ export const LengthComp = ({addLength}) => {
             </div>
           </div>
         </div>
+        <div className="lengthForm">
+          <form className="lengthForm" onSubmit={handleSubmit}>
+            <label>
+              Cable Length:
+              <input
+                type="number"
+                value={length}
+                onChange={e => setLength(e.target.value)}
+              />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+        <footer className="footer">
+          <Button variant="dark">Next</Button>{' '}
+        </footer>
       </article>
-      <form className="lengthForm" onSubmit={handleSubmit}>
-        <label>
-          Cable Length:
-          <input
-            type="number"
-            value={length}
-            onChange={e => setLength(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-      <footer className="footer">
-        <button className="builder-next">Next</button>
-      </footer>
     </div>
   )
 }
