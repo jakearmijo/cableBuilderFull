@@ -4,8 +4,8 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
-import SideBar from './components/SideBar'
 import {LengthComp} from './components/LengthComp'
+import CableComp from './components/CableComp'
 
 /**
  * COMPONENT
@@ -23,11 +23,13 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/length" component={LengthComp} />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
+            <Route path="/length" component={LengthComp} />
+            <Route path="/cable" component={CableComp} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

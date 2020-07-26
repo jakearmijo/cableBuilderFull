@@ -1,4 +1,5 @@
 const path = require('path')
+const chalk = require('chalk')
 const express = require('express')
 const morgan = require('morgan')
 const compression = require('compression')
@@ -97,7 +98,7 @@ const createApp = () => {
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
   const server = app.listen(PORT, () =>
-    console.log(`Mixing it up on port ${PORT}`)
+    console.log(chalk.cyanBright(`coming at you LIVEEEEE on ${PORT}`))
   )
 
   // set up our socket control center

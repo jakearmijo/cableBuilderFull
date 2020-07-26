@@ -4,7 +4,7 @@ import {Navbar} from './navbar'
 import SideBar from './SideBar'
 import Button from 'react-bootstrap/Button'
 
-export const LengthComp = ({addLength}) => {
+export const LengthComp = () => {
   const [length, setLength] = useState('')
   // const [cable, getCableLength] = useState('')
 
@@ -14,9 +14,7 @@ export const LengthComp = ({addLength}) => {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    alert(`Submitting Length ${length}`)
-    console.log('Cable Length:', length)
-    addLength(length)
+    setLength(length)
   }
   return (
     <div className="lengthComp">

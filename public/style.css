@@ -142,3 +142,11 @@ form button:hover {
 form button:disabled {
   background-color: red;
 }
+
+/* CABLE COMP */
+
+.cableComp {
+  display: flex;
+  padding-left: 10%;
+  flex-direction: column;
+}
