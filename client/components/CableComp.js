@@ -3,6 +3,7 @@ import SideBar from './SideBar'
 import {fetchCables} from '../store/cable'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import CableSpecs from './CableSpecs'
 
 export class CableComp extends Component {
   componentDidMount() {
@@ -61,6 +62,9 @@ export class CableComp extends Component {
             </div>
           </div>
         </article>
+        <div>
+          <CableSpecs cables={cables} />
+        </div>
       </div>
     )
   }
