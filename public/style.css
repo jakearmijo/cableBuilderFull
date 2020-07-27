@@ -23,6 +23,11 @@ form div {
 .App {
   display: flex;
 }
+.ShopCart {
+  width: 7%;
+  height: 5%;
+  float: right;
+}
 .sidebar {
   width: 160px;
 }
@@ -35,7 +40,7 @@ form div {
   top: 0;
   left: 0;
   background-color: #111;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   padding-top: 100px;
 }
 
@@ -54,6 +59,41 @@ form div {
 
 #sideElm {
   border-color: coral;
+}
+/* USER HOME PAGE */
+.customBuilderEnter {
+  /* display: flex; */
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.button5 {
+  background: #3498db;
+  width: 180px;
+  padding: 8px;
+
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 4px;
+}
+
+.button5:hover {
+  cursor: pointer;
+}
+
+.button5:after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 30%;
+  border-radius: 50%;
+  background-color: darken(black, 20%);
+  opacity: 0.4;
+  bottom: -30px;
 }
 
 .lengthComp {
@@ -148,5 +188,29 @@ form button:disabled {
 .cableComp {
   display: flex;
   padding-left: 10%;
-  flex-direction: column;
+}
+.tourhardDIV {
+  display: flex;
+}
+.cablesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.singleCableDiv {
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #edf2f4;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  border-radius: 5px;
+  width: 10rem;
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.cableTypeTitle {
+  border-bottom: 5px solid indigo;
 }

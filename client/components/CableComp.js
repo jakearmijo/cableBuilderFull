@@ -2,37 +2,65 @@ import React, {Component} from 'react'
 import SideBar from './SideBar'
 import {fetchCables} from '../store/cable'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 export class CableComp extends Component {
-  constructor() {
-    super()
-    this.state = {
-      cables: []
-    }
-  }
   componentDidMount() {
     this.props.getCables()
   }
   render() {
-    const cables = this.state.cables
-    console.log('cablescablescables', cables)
+    const cables = this.props.cables
     return (
       <div className="cableComp">
         <SideBar />
-        <div className="articleheader">
-          <span className="selectcable">
-            2. SELECT <strong>CABLE</strong>
-          </span>
-        </div>
-        <div className="cableMAIN">
-          <div className="tourhardDIV">
-            <h3>TOUR HARD</h3>
-            {console.log('this.props.cables', cables)}
+        <article className="lengthArticle">
+          <div className="articleheader">
+            <span className="selectcable">
+              2. SELECT <strong>CABLE</strong>
+            </span>
           </div>
-          <div className="standardDIV">
-            <h3>STANDARD</h3>
+          <div className="cableMAIN">
+            <h2 className="cableTypeTitle">TOUR HARD</h2>
+            <div className="tourhardDIV">
+              <div className="cablesList">
+                {cables &&
+                  cables
+                    .filter(cable => cable.cableType === 'Tour Hard')
+                    .map(cable => (
+                      <div key={cable.id} className="singleCableDiv">
+                        <Link
+                          className="firstNameLink"
+                          to={`/cable/${cable.id}`}
+                        >
+                          <h3>Name:{cable.name}</h3>
+                        </Link>
+                        <img className="cableImg" src={cable.imageUrl} />
+                        <h4>Price: ${cable.price}</h4>
+                        <h5>Description:</h5>
+                        <p>{cable.description}</p>
+                      </div>
+                    ))}
+              </div>
+            </div>
+            <h2 className="cableTypeTitle">STANDARD</h2>
+            <div className="tourhardDIV">
+              {cables &&
+                cables
+                  .filter(cable => cable.cableType === 'Standard')
+                  .map(cable => (
+                    <div key={cable.id} className="singleCableDiv">
+                      <Link className="firstNameLink" to={`/cable/${cable.id}`}>
+                        <h3>Name:{cable.name}</h3>
+                      </Link>
+                      <img className="cableImg" src={cable.imageUrl} />
+                      <h4>Price: ${cable.price}</h4>
+                      <h5>Description:</h5>
+                      <p>{cable.description}</p>
+                    </div>
+                  ))}
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     )
   }

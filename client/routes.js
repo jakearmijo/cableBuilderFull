@@ -4,7 +4,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
-import {LengthComp} from './components/LengthComp'
+import LengthComp from './components/LengthComp'
 import CableComp from './components/CableComp'
 
 /**
@@ -17,7 +17,6 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}

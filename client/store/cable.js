@@ -7,12 +7,13 @@ const ADD_NEW_CABLE = 'ADD_NEW_CABLE'
 const REMOVE_CABLE = 'REMOVE_CABLE'
 const UPDATE_CABLE = 'UPDATE_CABLE'
 
+const cablesState = []
+
 //ACTION CREATOR
 export const setCables = cables => {
-  console.log('ACTION TYPE', cables)
   return {
     type: SET_CABLES,
-    cables
+    cables: cables
   }
 }
 
@@ -37,13 +38,10 @@ export const updateCable = cable => {
 //THUNKCREATORS
 export const fetchCables = () => async dispatch => {
   try {
-    const response = await axios.get('/api/cable')
-    const cables = response.data
-    console.log('ACTION thunkCreator', cables)
-    const action = setCables(cables)
-    dispatch(action)
+    const {data} = await axios.get('/api/cable')
+    dispatch(setCables(data))
   } catch (error) {
-    console.log(chalk.redBright('ERROR IN FETCH CABLES THUNK', error))
+    console.log('ERROR IN FETCH CABLES THUNK', error)
   }
 }
 
@@ -76,14 +74,14 @@ export const updateCableThunk = cable => async dispatch => {
 
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
-export default function cablesReducer(state = [], action) {
+export default function(state = cablesState, action) {
   switch (action.type) {
     case SET_CABLES:
       return action.cables
     case ADD_NEW_CABLE:
       return [...state, action.cables]
     case REMOVE_CABLE:
-      return state.filter(cables => cables.id !== action.cablesId.id)
+      return state.filter(cable => cable.id !== action.cableId.id)
     case UPDATE_CABLE:
       return action.cables
     default:

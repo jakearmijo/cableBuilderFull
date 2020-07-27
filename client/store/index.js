@@ -3,9 +3,12 @@ import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
-import cablesReducer from './cable'
+import cables from './cable'
 
-const reducer = combineReducers({user, cablesReducer})
+const reducer = combineReducers({
+  user: user,
+  cables: cables
+})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
