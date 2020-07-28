@@ -6,9 +6,24 @@ import {Link} from 'react-router-dom'
 import CableSpecs from './CableSpecs'
 
 export class CableComp extends Component {
+  constructor() {
+    super()
+    this.state = {
+      cable: ''
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
   componentDidMount() {
     this.props.getCables()
   }
+
+  handleClick(event) {
+    this.setState({
+      cable: event.target.value
+    })
+    console.log('EVENT INFO CABLECOMP', event.target)
+  }
+
   render() {
     const cables = this.props.cables
     return (
@@ -28,17 +43,18 @@ export class CableComp extends Component {
                   cables
                     .filter(cable => cable.cableType === 'Tour Hard')
                     .map(cable => (
-                      <div key={cable.id} className="singleCableDiv">
-                        <Link
-                          className="firstNameLink"
-                          to={`/cable/${cable.id}`}
-                        >
+                      <div
+                        key={cable.id}
+                        value={cable.name}
+                        onClick={this.handleClick}
+                      >
+                        <div className="singleCableDiv">
                           <h3>Name:{cable.name}</h3>
-                        </Link>
-                        <img className="cableImg" src={cable.imageUrl} />
-                        <h4>Price: ${cable.price}</h4>
-                        <h5>Description:</h5>
-                        <p>{cable.description}</p>
+                          <img className="cableImg" src={cable.imageUrl} />
+                          <h4>Price: ${cable.price}</h4>
+                          <h5>Description:</h5>
+                          <p>{cable.description}</p>
+                        </div>
                       </div>
                     ))}
               </div>
@@ -63,7 +79,7 @@ export class CableComp extends Component {
           </div>
         </article>
         <div>
-          <CableSpecs cables={cables} />
+          <CableSpecs cables={cables} cable={this.state} />
         </div>
       </div>
     )

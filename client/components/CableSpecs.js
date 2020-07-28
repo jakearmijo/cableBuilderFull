@@ -3,8 +3,21 @@ import {fetchSingleCable} from '../store/singleCable'
 import {connect} from 'react-redux'
 
 export class CableSpecs extends Component {
+  // componentDidMount(){
+  //     this.props.getSingleCable(this.props.cablecableId)
+  // }
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
   render() {
-    return <div></div>
+    console.log('this.props on CableSpecs', this.props)
+    return (
+      <div>
+        <h1>TITLE</h1>
+      </div>
+    )
   }
 }
 
