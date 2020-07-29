@@ -21,7 +21,7 @@ export class CableComp extends Component {
     this.setState({
       cable: event.target.value
     })
-    console.log('EVENT INFO CABLECOMP', event.target)
+    console.log('EVENT INFO CABLECOMP', event.target.name)
   }
 
   render() {
@@ -43,19 +43,23 @@ export class CableComp extends Component {
                   cables
                     .filter(cable => cable.cableType === 'Tour Hard')
                     .map(cable => (
-                      <div
+                      <a
                         key={cable.id}
                         value={cable.name}
                         onClick={this.handleClick}
                       >
-                        <div className="singleCableDiv">
+                        <div value={cable.name} className="singleCableDiv">
                           <h3>Name:{cable.name}</h3>
-                          <img className="cableImg" src={cable.imageUrl} />
+                          <img
+                            value={cable.name}
+                            className="cableImg"
+                            src={cable.imageUrl}
+                          />
                           <h4>Price: ${cable.price}</h4>
                           <h5>Description:</h5>
                           <p>{cable.description}</p>
                         </div>
-                      </div>
+                      </a>
                     ))}
               </div>
             </div>
